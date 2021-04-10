@@ -1,9 +1,10 @@
-import { Image, Text, VStack } from '@chakra-ui/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import Link from 'next/link';
+import { Flex, Heading, Text, VStack } from '@chakra-ui/react';
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 export const Slide = (): JSX.Element => {
   return (
@@ -12,121 +13,131 @@ export const Slide = (): JSX.Element => {
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
+      autoplay={{ delay: 3000 }}
     >
       <SwiperSlide>
-        <Image w={1240} h={450} src="/north-america.jpg" position="relative" />
-        <VStack
-          position="absolute"
-          top="50%"
-          left="50%"
-          transform="translate3d(-50%,-50%,0)"
-        >
-          <Text fontSize="5xl" color="light.text">
-            América do Norte
-          </Text>
-          <Text fontSize="2xl" color="light.info">
-            O continente mais antigo
-          </Text>
-        </VStack>
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          w={1240}
-          h={450}
-          src="/south-america.jpg"
-          position="relative"
-          filter="brightness(0.3)"
-        />
-        <VStack
-          position="absolute"
-          top="50%"
-          left="50%"
-          transform="translate3d(-50%,-50%,0)"
-        >
-          <Text fontSize="5xl" color="light.text">
-            América do Sul
-          </Text>
-          <Text fontSize="2xl" color="light.info">
-            O continente mais antigo
-          </Text>
-        </VStack>
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          w={1240}
-          h={450}
-          src="/asia.jpg"
+        <Flex
+          w="100%"
+          h="100%"
+          direction="column"
+          align="center"
+          justify="center"
+          bg="url(/north-america.jpg) no-repeat center center"
           bgSize="cover"
-          bgPosition="center"
-          position="relative"
-        />
-        <VStack
-          position="absolute"
-          top="50%"
-          left="50%"
-          transform="translate3d(-50%,-50%,0)"
         >
-          <Text fontSize="5xl" color="light.text">
-            Ásia
-          </Text>
-          <Text fontSize="2xl" color="light.info">
-            O continente mais antigo
-          </Text>
-        </VStack>
+          <VStack>
+            <Heading fontSize="5xl" color="light.text">
+              América do Norte
+            </Heading>
+            <Text fontSize="2xl" color="light.info">
+              O continente mais antigo
+            </Text>
+          </VStack>
+        </Flex>
       </SwiperSlide>
       <SwiperSlide>
-        <Image w={1240} h={450} src="/africa.jpg" position="relative" />
-        <VStack
-          position="absolute"
-          top="50%"
-          left="50%"
-          transform="translate3d(-50%,-50%,0)"
+        <Flex
+          w="100%"
+          h="100%"
+          direction="column"
+          align="center"
+          justify="center"
+          bg="url(/south-america.jpg) no-repeat center center"
+          bgSize="cover"
         >
-          <Text fontSize="5xl" color="light.text">
-            África
-          </Text>
-          <Text fontSize="2xl" color="light.info">
-            O continente mais antigo
-          </Text>
-        </VStack>
+          <VStack>
+            <Heading fontSize="5xl" color="light.text">
+              América do Sul
+            </Heading>
+            <Text fontSize="2xl" color="light.info">
+              O continente mais antigo
+            </Text>
+          </VStack>
+        </Flex>
       </SwiperSlide>
       <SwiperSlide>
-        <Image src="/europe.png" position="relative" />
-        <VStack
-          position="absolute"
-          top="50%"
-          left="50%"
-          transform="translate3d(-50%,-50%,0)"
+        <Flex
+          w="100%"
+          h="100%"
+          direction="column"
+          align="center"
+          justify="center"
+          bg="url(/asia.jpg) no-repeat center center"
+          bgSize="cover"
         >
-          <Text fontSize="5xl" color="light.text">
-            Europa
-          </Text>
-          <Text fontSize="2xl" color="light.info">
-            O continente mais antigo
-          </Text>
-        </VStack>
+          <VStack>
+            <Heading fontSize="5xl" color="light.text">
+              Ásia
+            </Heading>
+            <Text fontSize="2xl" color="light.info">
+              O continente mais antigo
+            </Text>
+          </VStack>
+        </Flex>
       </SwiperSlide>
       <SwiperSlide>
-        <Image
-          w={1240}
-          h={450}
-          src="/oceania.jpg"
-          position="relative"
-          filter="brightness(0.7)"
-        />
-        <VStack
-          position="absolute"
-          top="50%"
-          left="50%"
-          transform="translate3d(-50%,-50%,0)"
+        <Flex
+          w="100%"
+          h="100%"
+          direction="column"
+          align="center"
+          justify="center"
+          bg="url(/africa.jpg) no-repeat center center"
+          bgSize="cover"
         >
-          <Text fontSize="5xl" color="light.text">
-            Oceania
-          </Text>
-          <Text fontSize="2xl" color="light.info">
-            O continente mais antigo
-          </Text>
-        </VStack>
+          <VStack>
+            <Heading fontSize="5xl" color="light.text">
+              África
+            </Heading>
+            <Text fontSize="2xl" color="light.info">
+              O continente mais antigo
+            </Text>
+          </VStack>
+        </Flex>
+      </SwiperSlide>
+      <SwiperSlide>
+        <Flex
+          w="100%"
+          h="100%"
+          direction="column"
+          align="center"
+          justify="center"
+          bg="url(/europe.png) no-repeat center center"
+          bgSize="cover"
+        >
+          <Link href="/continents/europa">
+            <a>
+              <VStack>
+                <Heading fontSize="5xl" color="light.text">
+                  Europa
+                </Heading>
+                <Text fontSize="2xl" color="light.info">
+                  O continente mais antigo
+                </Text>
+              </VStack>
+            </a>
+          </Link>
+        </Flex>
+      </SwiperSlide>
+      <SwiperSlide>
+        <Flex
+          w="100%"
+          h="100%"
+          direction="column"
+          align="center"
+          justify="center"
+          bg="url(/oceania.jpg) no-repeat center center"
+          bgSize="cover"
+        >
+          <VStack>
+            <Heading fontSize="5xl" color="light.text">
+              Oceania
+            </Heading>
+            <Text fontSize="2xl" color="light.info">
+              O continente mais antigo
+            </Text>
+          </VStack>
+        </Flex>
       </SwiperSlide>
     </Swiper>
   );
