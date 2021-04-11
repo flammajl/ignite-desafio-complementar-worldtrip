@@ -20,7 +20,7 @@ export function Slider({ countries }: SliderProps): JSX.Element {
       <Text
         textAlign="center"
         color="dark.text"
-        fontSize="4xl"
+        fontSize={['xl', '4xl']}
         fontWeight="medium"
         mb="14"
       >

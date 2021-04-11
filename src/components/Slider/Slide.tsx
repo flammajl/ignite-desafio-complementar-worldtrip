@@ -42,7 +42,7 @@ export const Slide = ({ countries }: SlideProps): JSX.Element => {
             <Link href={`/continents/${country.slug}`}>
               <a>
                 <VStack>
-                  <Heading fontSize="5xl" color="light.text">
+                  <Heading fontSize={['2xl', '5xl']} color="light.text">
                     {country.title}
                   </Heading>
                 </VStack>

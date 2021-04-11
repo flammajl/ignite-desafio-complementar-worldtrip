@@ -49,17 +49,33 @@ export default function Continent({ country }: ContinentProps): JSX.Element {
         bg={`url(${country.banner.src}) center no-repeat`}
         bgSize="cover"
         h={500}
-        align="flex-end"
+        align={['center', 'flex-end']}
       >
-        <Box flex="1" maxW={1240} mx="auto" pb="14">
-          <Heading color="light.text" fontSize="5xl" fontWeight="semibold">
+        <Box flex="1" maxW={1240} mx="auto" pb={['0', '14']}>
+          <Heading
+            color="light.text"
+            fontSize={['3xl', '5xl']}
+            fontWeight="semibold"
+            textAlign={['center', 'initial']}
+          >
             {RichText.asText(country.title)}
           </Heading>
         </Box>
       </Flex>
 
-      <Flex maxW={1240} mx="auto" align="center" py="20">
-        <Text flex="1" fontSize="2xl" color="dark.text">
+      <Flex
+        maxW={1240}
+        mx="auto"
+        align="center"
+        py="20"
+        direction={['column', 'row']}
+      >
+        <Text
+          flex="1"
+          fontSize={['sm', '2xl']}
+          px={['8', '0']}
+          color="dark.text"
+        >
           {country.summary}
         </Text>
         <HStack
@@ -69,28 +85,29 @@ export default function Continent({ country }: ContinentProps): JSX.Element {
           align="center"
           spacing="8"
           fontWeight="semibold"
+          pt={['8', '0']}
         >
           <Box>
-            <Text fontSize="5xl" color="highlight.500">
+            <Text fontSize={['2xl', '5xl']} color="highlight.500">
               {country.countries}
             </Text>
-            <Text fontSize="2xl" color="dark.text">
+            <Text fontSize={['lg', '2xl']} color="dark.text">
               países
             </Text>
           </Box>
           <Box>
-            <Text fontSize="5xl" color="highlight.500">
+            <Text fontSize={['2xl', '5xl']} color="highlight.500">
               {country.languages}
             </Text>
-            <Text fontSize="2xl" color="dark.text">
+            <Text fontSize={['lg', '2xl']} color="dark.text">
               línguas
             </Text>
           </Box>
           <Box>
-            <Text fontSize="5xl" color="highlight.500">
+            <Text fontSize={['2xl', '5xl']} color="highlight.500">
               {country.topCitiesQuantity}
             </Text>
-            <Text fontSize="2xl" color="dark.text">
+            <Text fontSize={['lg', '2xl']} color="dark.text">
               cidades +100
             </Text>
           </Box>
@@ -98,12 +115,18 @@ export default function Continent({ country }: ContinentProps): JSX.Element {
       </Flex>
 
       <Box maxW={1240} mx="auto">
-        <Heading color="dark.text" fontWeight="medium" mb="10">
+        <Heading
+          color="dark.text"
+          fontWeight="medium"
+          mb="10"
+          fontSize={['2xl', '4xl']}
+          px={['8', '0']}
+        >
           Cidades +100
         </Heading>
-        <SimpleGrid columns={4} spacing="10" pb="8">
+        <SimpleGrid columns={[1, 4]} spacing="10" pb="8">
           {country.topCities.map(topCountry => (
-            <Flex key={RichText.asText(topCountry.city)}>
+            <Flex key={RichText.asText(topCountry.city)} mx={['auto', '0']}>
               <Flex direction="column">
                 <Image
                   src={topCountry.photo.url}
